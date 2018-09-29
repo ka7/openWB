@@ -28,6 +28,14 @@ else
 	echo "...ok"
 fi
 
+echo "check for sudo"
+if ! [ -x "$(command -v sudo)" ];then
+	apt-get -qq install sudo
+	echo "...installed"
+else
+	echo "...ok"
+fi
+
 echo "check for apache"
 if ! [ -x "$(command -v apachectl)" ]; then
 	apt-get -qq install -y apache2
